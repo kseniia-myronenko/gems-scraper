@@ -6,8 +6,8 @@ data = { browser: Capybara.current_session,
          link: 'https://rubygems.org',
          email: 'gli69824@nezid.com',
          password: 'Secure$password',
-         letter: 'a',
-         pages: 10 }
+         letter: 'z',
+         pages: 35 }
 
 scrape = GemsNamesScraper.new(**data)
 scrape.visit

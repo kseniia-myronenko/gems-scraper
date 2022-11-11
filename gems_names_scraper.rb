@@ -36,10 +36,17 @@ class GemsNamesScraper
         result << title
       end
 
-      browser.first(:xpath, '//a[@rel="next"]').click
+      pagination_cleaker
     end
 
     result
+  end
+
+  def pagination_cleaker
+    browser.first(:xpath, '//a[@rel="next"]').click
+  rescue StandardError
+    puts 'You have exceeded pages limit.'
+    nil
   end
 
   def write_to_hash(result)
