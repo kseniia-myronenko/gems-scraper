@@ -7,12 +7,14 @@ data = { browser: Capybara.current_session,
          email: 'gli69824@nezid.com',
          password: 'Secure$password',
          letter: 'z',
-         pages: 35 }
+         pages: 5 }
 
-scrape = GemsNamesScraper.new(**data)
-scrape.visit
-scrape.log_in
-scrape.select_gems_by_letter
-gems = scrape.titles
-gems = scrape.write_to_hash(gems)
-scrape.write_to_yml(gems)
+scraper = GemsNamesScraper.new(**data)
+scraper.visit
+scraper.log_in
+scraper.select_gems_by_letter
+gems = scraper.titles
+
+writer = GemsNamesWriter.new(data[:letter], gems)
+hash = writer.to_hash
+writer.to_yml(hash)

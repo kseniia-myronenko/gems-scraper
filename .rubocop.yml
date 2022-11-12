@@ -7,3 +7,8 @@ AllCops:
 
 Style/Documentation:
   Enabled: false
+
+# Rspec cops
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
