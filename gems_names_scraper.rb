@@ -7,7 +7,6 @@ class GemsNamesScraper
     @email = params[:email]
     @password = params[:password]
     @letter = params[:letter].upcase
-    @gems_keeper = "yamls/gems_#{letter}_keeper.yml"
     @pages = params[:pages]
     @result = []
   end
@@ -49,17 +48,7 @@ class GemsNamesScraper
     nil
   end
 
-  def write_to_hash(result)
-    result.each_with_index do |item, index|
-      result[index] = item
-    end
-  end
-
-  def write_to_yml(gems)
-    File.write(gems_keeper, gems.to_yaml)
-  end
-
   private
 
-  attr_reader :browser, :link, :email, :password, :letter, :gems_keeper, :result, :pages
+  attr_reader :browser, :link, :email, :password, :letter, :gems_keeper, :pages, :result
 end
