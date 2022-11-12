@@ -20,7 +20,7 @@ RSpec.describe GemsNamesWriter do
   end
 
   describe '#to_yml(hash)' do
-    let(:fake_file_name) { "fixtures/gems_#{data[:letter]}_keeper.yml" }
+    let(:fake_file_name) { "spec/fixtures/gems_#{data[:letter]}_keeper.yml" }
     let(:file_content) { YAML.safe_load(File.open(fake_file_name)) }
     let(:hash) { writer.to_hash }
 
