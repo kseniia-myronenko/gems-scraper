@@ -50,5 +50,5 @@ class GemsNamesScraper
 
   private
 
-  attr_reader :browser, :link, :email, :password, :letter, :gems_keeper, :pages, :result
+  attr_reader :browser, :link, :email, :password, :letter, :pages, :result
 end
