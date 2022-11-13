@@ -47,13 +47,13 @@ RSpec.describe GemsNamesScraper, js: true, type: :feauture do
 
     it 'shows gems that begin with right letter' do
       page.all('h2.gems__gem__name').each do |item|
-        expect(item.text).to match(/^[bB]/)
+        expect(item.text).to match('^b|B')
       end
     end
 
     it 'expect gems with wrong letters not to be present' do
       page.all('h2.gems__gem__name').each do |item|
-        expect(item.text).not_to match(/^[aA]/)
+        expect(item.text).not_to match('^a|A')
       end
     end
   end
@@ -71,7 +71,7 @@ RSpec.describe GemsNamesScraper, js: true, type: :feauture do
     end
 
     it 'expects to return items with letter-b gems' do
-      array.map { |item| expect(item).to match(/^[bB]/) }
+      array.map { |item| expect(item).to match('^b|B') }
     end
   end
 
@@ -88,7 +88,7 @@ RSpec.describe GemsNamesScraper, js: true, type: :feauture do
 
     it 'renders the right gems on paginated page' do
       page.all('h2.gems__gem__name').each do |item|
-        expect(item.text).to match(/^[bB]/)
+        expect(item.text).to match('^b|B')
       end
     end
   end
